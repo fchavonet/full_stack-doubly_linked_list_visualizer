@@ -10,6 +10,12 @@
     <!-- Link to external stylesheet and JavaScript behaviors -->
     <link rel="stylesheet" href="./styles.css">
     <script src="./behaviors.js" defer></script>
+
+    <!-- Prism.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-okaidia.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-c.min.js" defer></script>
+
 </head>
 
 <body>
@@ -59,7 +65,9 @@
             <div id="code-viewer-container">
                 <h2>Code viewer</h2>
 
-                <div>
+                <div id="code-viewer">
+                    <pre><code id="code-display" class="language-c"></code></pre>
+                    <button id="copy-code-button" onclick="copyCode()">Copy</button>
                 </div>
             </div>
         </div>

@@ -119,6 +119,30 @@ hr {
     flex-direction: column;
 }
 
+#code-viewer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+pre {
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+#copy-code-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
 /* */
 #bottom-container {
     width: 100%;
