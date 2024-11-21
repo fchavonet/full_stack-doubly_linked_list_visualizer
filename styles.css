@@ -31,6 +31,21 @@ main {
     height: calc(100% - 8rem);
 }
 
+h1 {
+    color: #569cd6;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: #569cd6;
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
 /* */
 #top-container {
     width: 100%;
@@ -50,6 +65,49 @@ main {
     display: flex;
     flex-direction: column;
     border-right: 1px solid black;
+}
+
+#node-manager {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#node-manager input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+#node-manager input[type="number"] {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+#node-manager button {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid black;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#reset-button {
+    color: red !important;
+    border: 1px solid red !important;
 }
 
 /* Code viewer */
