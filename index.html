@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-okaidia.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-c.min.js" defer></script>
-
 </head>
 
 <body>
@@ -33,20 +32,20 @@
 
                 <div id="node-manager">
                     <!-- Node value input -->
-                    <input type="text" placeholder="Node value...">
+                    <input id="node-value" type="text" placeholder="Node value...">
 
                     <hr>
 
                     <!-- Add at begining and end buttons -->
                     <div class="buttons-container">
-                        <button>Add node at the begining</button>
+                        <button onclick="addAtBeginning()">Add node at the begining</button>
                         <button>Add node at the end</button>
                     </div>
 
                     <hr>
 
                     <!-- Node position input -->
-                    <input type="text" placeholder="Node position...">
+                    <input id="node-position" type="number" placeholder="Node position...">
 
                     <!-- Add and delete at position buttons -->
                     <div class="buttons-container">
@@ -75,8 +74,8 @@
         <div id="bottom-container">
             <h2>Doubly linked list viewer</h2>
 
-            <div>
-                <!-- The list will appear here -->
+            <div id="list-viewer">
+                <!-- The doubly linked list will be generated here -->
             </div>
         </div>
     </main>
