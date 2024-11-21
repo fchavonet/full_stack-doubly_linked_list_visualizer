@@ -39,7 +39,7 @@
                     <!-- Add at begining and end buttons -->
                     <div class="buttons-container">
                         <button onclick="addAtBeginning()">Add node at the begining</button>
-                        <button>Add node at the end</button>
+                        <button onclick="addAtEnd()">Add node at the end</button>
                     </div>
 
                     <hr>
@@ -49,14 +49,14 @@
 
                     <!-- Add and delete at position buttons -->
                     <div class="buttons-container">
-                        <button>Add node at the postition</button>
-                        <button>Delete node at the position</button>
+                        <button onclick="addAtPosition()">Add node at the postition</button>
+                        <button onclick="deleteAtPosition()">Delete node at the position</button>
                     </div>
 
                     <hr>
 
                     <!-- Reset button -->
-                    <button id="reset-button">Reset the list</button>
+                    <button id="reset-button" onclick="resetList()">Reset the list</button>
                 </div>
             </div>
 

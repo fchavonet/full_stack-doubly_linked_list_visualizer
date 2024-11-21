@@ -26,6 +26,96 @@ function addAtBeginning() {
     clearInputs();
 }
 
+// Function to add a node at the end of the list.
+function addAtEnd() {
+    const value = document.getElementById("node-value").value;
+
+    if (value === "") {
+        return;
+    }
+
+    const newNode = {
+        name: generateNodeName(),
+        data: value,
+        prev: nodes.length > 0 ? nodes[nodes.length - 1].name : null,
+        next: null
+    };
+
+    if (nodes.length > 0) {
+        nodes[nodes.length - 1].next = newNode.name;
+    }
+
+    nodes.push(newNode);
+
+    renderList();
+    clearInputs();
+}
+
+// Function to add a node at a specific position.
+function addAtPosition() {
+    const value = document.getElementById("node-value").value;
+    const position = parseInt(document.getElementById("node-position").value);
+
+    if (value === "" || isNaN(position) || position < 0 || position > nodes.length) {
+        return;
+    }
+
+    const newNode = {
+        name: generateNodeName(),
+        data: value,
+        prev: null,
+        next: null
+    };
+
+    if (position === 0) {
+        addAtBeginning();
+        return;
+    } else if (position === nodes.length) {
+        addAtEnd();
+        return;
+    } else {
+        const prevNode = nodes[position - 1];
+        const nextNode = nodes[position];
+
+        newNode.prev = prevNode.name;
+        newNode.next = nextNode.name;
+
+        prevNode.next = newNode.name;
+        nextNode.prev = newNode.name;
+
+        nodes.splice(position, 0, newNode);
+    }
+
+    renderList();
+    clearInputs();
+}
+
+// Function to delete a node at a specific position.
+function deleteAtPosition() {
+    const position = parseInt(document.getElementById("node-position").value);
+
+    if (isNaN(position) || position < 0 || position >= nodes.length) {
+        return;
+    }
+
+    const nodeToDelete = nodes[position];
+
+    if (nodeToDelete.prev) {
+        const prevNode = nodes.find(n => n.name === nodeToDelete.prev);
+        prevNode.next = nodeToDelete.next;
+    }
+
+    if (nodeToDelete.next) {
+        const nextNode = nodes.find(n => n.name === nodeToDelete.next);
+        nextNode.prev = nodeToDelete.prev;
+    }
+
+    nodes.splice(position, 1);
+
+    renderList();
+    clearInputs();
+}
+
 // Initialize counter for node naming.
 let nodeCounter = 0;
 // Function to generate unique node names.
@@ -39,7 +129,7 @@ function renderList() {
     const listViewer = document.getElementById("list-viewer");
     listViewer.innerHTML = "";
 
-    nodes.forEach((node, index) => {
+    nodes.forEach(function (node, index) {
         // Create a container for nodes.
         const nodesContainer = document.createElement("div");
         nodesContainer.id = "nodes-container";
@@ -104,8 +194,21 @@ function renderList() {
     });
 }
 
+// Function to reset the list and node counter.
+function resetList() {
+    nodes = [];
+    nodeCounter = 0;
+
+    renderList();
+    clearInputs();
+}
+
 // Function to clear input fields.
 function clearInputs() {
     document.getElementById("node-value").value = "";
     document.getElementById("node-position").value = "";
 }
+
+window.onload = function () {
+    renderList();
+};
