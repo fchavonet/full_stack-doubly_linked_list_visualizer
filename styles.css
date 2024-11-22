@@ -1,3 +1,20 @@
+/* VARIABLES */
+:root {
+    --text-color: #cccccc;
+    --border-color: #2b2b2b;
+    --primary-background-color: #181818;
+    --secondary-background-color: #1f1f1f;
+
+    --buton-text-color: #ffffff;
+    --button-border-color: #1282d7;
+    --button-background-color: #0078d4;
+    --button-background-hover-color: #026ec1;
+
+    --input-text-color: #737373;
+    --input-border-color: #3c3c3c;
+    --input-background-color: #313131;
+}
+
 /* RESET CSS */
 *,
 *::before,
@@ -9,22 +26,22 @@
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 ::-webkit-scrollbar-track {
-    border: 1px solid #ededed;
-    background-color: #fafafa;
+    border: 1px solid #0f1113;
+    background-color: var(--secondary-background-color);
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 0px;
-    background-color: #c2c2c2;
+    background-color: #434343;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #555555;
+    background-color: #4f4f4f;
 }
 
 /* GENERAL */
@@ -32,6 +49,12 @@ body {
     width: 100%;
     height: 100vh;
     font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--primary-background-color);
+}
+
+::selection {
+    background-color: #7fa0c1;
 }
 
 /* HEADER */
@@ -42,7 +65,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* MAIN */
@@ -52,18 +75,17 @@ main {
 }
 
 h1 {
-    color: #569cd6;
+    color: #519aba;
 }
 
 h2 {
     margin-bottom: 1rem;
-    color: #569cd6;
 }
 
 hr {
     width: 100%;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* TOP */
@@ -74,7 +96,7 @@ hr {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* Node manager */
@@ -84,7 +106,7 @@ hr {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid black;
+    border-right: 1px solid var(--border-color);
 }
 
 #node-manager {
@@ -98,22 +120,38 @@ hr {
 
 #node-manager input[type="text"] {
     width: 100%;
-    padding: 1rem;
-    border: 1px solid black;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: var(--input-text-color);
+    border: 1px solid var(--input-border-color);
+    background-color: var(--input-background-color);
 }
 
 #node-manager input[type="number"] {
     width: 100%;
-    padding: 1rem;
-    border: 1px solid black;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: var(--input-text-color);
+    border: 1px solid var(--input-border-color);
+    background-color: var(--input-background-color);
+}
+
+#node-manager input:focus {
+    outline: 2px solid var(--button-background-color);
 }
 
 #node-manager button {
     width: 100%;
     padding: 1rem;
-    border: 1px solid black;
-    background-color: transparent;
+    color: var(--buton-text-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 0.1rem;
+    background-color: var(--button-background-color);
     cursor: pointer;
+}
+
+#node-manager button:hover {
+    background-color: var(--button-background-hover-color);
 }
 
 .buttons-container {
@@ -126,8 +164,13 @@ hr {
 }
 
 #reset-button {
-    color: red !important;
-    border: 1px solid red !important;
+    color: var(--buton-text-color) !important;
+    border: 1px solid #e34a6f !important;
+    background-color: #dc143c !important;
+}
+
+#reset-button:hover {
+    background-color: #cc143c !important;
 }
 
 /* Code viewer */
@@ -149,17 +192,20 @@ pre {
     width: 100%;
     height: calc(100% - 2.75rem);
     margin: 0 !important;
+    border: 1px solid var(--border-color) !important;
     border-radius: 0 !important;
+    background-color: var(--secondary-background-color) !important;
 }
 
 #copy-code-button {
     position: absolute;
     top: 0;
-    right: 0.5rem;
+    right: 1rem;
     padding: 0.5rem;
-    text-transform: uppercase;
-    border: 1px solid black;
-    border-radius: 0;
+    font-size: 1rem;
+    color: var(--text-color);
+    border: none;
+    background-color: transparent;
     cursor: pointer;
 }
 
@@ -181,7 +227,8 @@ pre {
     align-items: center;
     overflow-x: scroll;
     overflow-y: hidden;
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
+    background-color: var(--secondary-background-color);
 }
 
 #nodes-container {
@@ -218,7 +265,7 @@ pre {
 }
 
 .value-container {
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     text-align: center;
     border: 0.5px solid black;
 }
