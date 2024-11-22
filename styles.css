@@ -127,7 +127,7 @@ hr {
 
 pre {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 2.75rem);
     margin: 0 !important;
     border-radius: 0 !important;
 }
@@ -159,6 +159,7 @@ pre {
     display: flex;
     justify-content: center;
     align-items: center;
+    scrollbar-gutter: stable;
     overflow-x: scroll;
     overflow-y: hidden;
     border: 1px solid black;
@@ -190,25 +191,25 @@ pre {
 }
 
 .prev-container {
-    padding: 0.3rem;
+    padding: 0.5rem;
     width: 5rem;
     text-align: center;
     color: green;
-    border: 1px solid black;
+    border: 0.5px solid black;
 }
 
 .value-container {
-    padding: 0.3rem;
+    padding: 0.5rem;
     text-align: center;
-    border: 1px solid black;
+    border: 0.5px solid black;
 }
 
 .next-container {
-    padding: 0.3rem;
+    padding: 0.5rem;
     width: 5rem;
     text-align: center;
     color: red;
-    border: 1px solid black;
+    border: 0.5px solid black;
 }
 
 .arrows-container {
@@ -223,7 +224,7 @@ pre {
 .arrow-right {
     position: relative;
     min-width: 50px;
-    margin-top: 20px;
+    margin-top: 18px;
     height: 2px;
     background-color: red;
 }
@@ -241,7 +242,7 @@ pre {
 .arrow-left {
     width: 50px;
     height: 2px;
-    margin: 8px 10px 0 10px;
+    margin-top: 10px;
     position: relative;
     background-color: green;
 }
