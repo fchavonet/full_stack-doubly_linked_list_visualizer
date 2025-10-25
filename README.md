@@ -76,8 +76,6 @@ git clone https://github.com/fchavonet/full_stack-doubly_linked_list_visualizer.
     vim doubly_linked_list.c
     ```
 
-> You can use any text editor instead of Vim, if you prefer.
-
     - Paste the code, save the file, and exit.
     - Compile the program:
 
