@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is an interactive web application designed to help beginners understand how doubly linked lists work in C. It allows users to create, manipulate, and visualize the structure of a doubly linked list, while simultaneously generating corresponding C code.
+This project is a visual learning tool  designed to help beginners understand how doubly linked lists work in C. It allows users to create, manipulate, and visualize the structure of a doubly linked list, while simultaneously generating corresponding C code.
 
 Using the application, users can:
 
