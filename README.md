@@ -25,9 +25,8 @@ This tool is particularly aimed at students learning C, to reinforce their under
 
 ![C badge](https://img.shields.io/badge/C-a8b9cc?logo=&logoColor=black&style=for-the-badge)
 ![HTML5 badge](https://img.shields.io/badge/HTML5-e34f26?logo=html5&logoColor=white&style=for-the-badge)
-![CSS3 badge](https://img.shields.io/badge/CSS3-1572b6?logo=css&logoColor=white&style=for-the-badge)
 ![JavaScript badge](https://img.shields.io/badge/JAVASCRIPT-f7df1e?logo=javascript&logoColor=black&style=for-the-badge)
-
+![TailwindCSS badge](https://img.shields.io/badge/TAILWINDCSS-06b6d4?logo=tailwindcss&logoColor=white&style=for-the-badge)
 
 ## File Description
 
@@ -35,7 +34,6 @@ This tool is particularly aimed at students learning C, to reinforce their under
 | :----------: | --------------------------------------------------- |
 | `assets`     | Contains the resources required for the repository. |
 | `index.html` | Main HTML structure for the project.                |
-| `style.css`  | Styles and animations for the project.              |
 | `script.js`  | Behavior script for interactivity.                  |
 | `README.md`  | The README file you are currently reading 😉.       |
 
