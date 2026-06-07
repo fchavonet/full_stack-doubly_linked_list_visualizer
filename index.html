@@ -5,88 +5,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Doubly linked list visualizer</title>
+    <title>Doubly Linked List Visualizer</title>
 
-    <!-- Link to external stylesheet and JavaScript behaviors -->
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
-
-    <!-- Bootstrap icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- Prism.js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-okaidia.min.css">
+    <!-- PRISM CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-c.min.js" defer></script>
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- SCRIPT -->
+    <script src="./script.js" defer></script>
 </head>
 
-<body>
+<body class="min-h-screen flex flex-col text-slate-900 antialiased bg-slate-50 lg:h-screen lg:overflow-hidden">
     <!-- HEADER -->
-    <header>
-        <h1>Doubly linked list visualizer</h1>
+    <header class="p-4 border-b border-slate-300 bg-white">
+        <div class="w-full flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+            <div class="flex flex-col justify-center items-start">
+                <h1 class="text-xl font-bold">Doubly Linked List Visualizer</h1>
+                <p class="text-sm text-slate-500">Build, manipulate and visualize a doubly linked list.</p>
+            </div>
+
+            <button id="reset-button" class="w-full lg:w-auto min-h-10 px-4 inline-flex justify-center items-center text-sm font-bold text-white rounded-lg bg-rose-600 hover:bg-rose-500 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed" type="button">
+                Reset
+            </button>
+        </div>
     </header>
 
     <!-- MAIN -->
-    <main>
-        <div id="top-container">
-            <!-- Node manager -->
-            <div id="node-manager-container">
-                <h2>Node manager</h2>
+    <main class="min-h-0 flex flex-1 flex-col gap-2 lg:overflow-hidden">
+        <!-- VALUE SECTION -->
+        <section class="grid gap-4 border-b border-slate-300 bg-slate-100 p-4 lg:grid-cols-[1fr_auto] lg:items-center">
+            <label class="flex flex-row justify-center items-center gap-2" for="value-input">
+                <span class="text-sm font-bold text-slate-500">Value</span>
+                <input id="value-input" class="w-full min-h-10 px-2 text-sm rounded-lg border border-slate-300 outline-none bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/15 transition" type="text" placeholder="Node value..." maxlength="10" autocomplete="off">
+            </label>
 
-                <div id="node-manager">
-                    <!-- Node value input -->
-                    <input id="node-value" type="text" maxlength="10" placeholder="Node value (string)">
+            <label class="flex flex-row justify-center items-center gap-2" for="position-input">
+                <span class="text-sm font-bold text-slate-500">Position</span>
+                <input id="position-input" class="w-full min-h-10 px-2 text-sm rounded-lg border border-slate-300 outline-none bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/15 transition" type="number" placeholder="0" min="0" autocomplete="off">
+            </label>
+        </section>
 
-                    <hr>
+        <div class="min-h-0 p-2 flex flex-1 flex-col gap-4 lg:overflow-hidden">
+            <div class="min-h-0 flex flex-1 flex-col gap-4 lg:flex-row lg:overflow-hidden">
+                <!-- LEFT ASIDE -->
+                <aside class="lg:w-60 lg:shrink-0 min-h-0 p-4 rounded-xl border border-slate-300 bg-white lg:overflow-auto">
+                    <section>
+                        <h2 class="mb-4 text-sm font-extrabold uppercase">Insertion</h2>
 
-                    <!-- Add at begining and end buttons -->
-                    <div class="buttons-container">
-                        <button onclick="addAtBeginning()">Add node at the begining</button>
-                        <button onclick="addAtEnd()">Add node at the end</button>
+                        <div class="flex flex-col justify-center items-center gap-2">
+                            <button id="add-beginning-button" class="w-full min-h-10 px-4 inline-flex justify-center items-center text-sm font-bold text-white rounded-lg bg-blue-600 hover:bg-blue-500 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed" type="button">
+                                Add at beginning
+                            </button>
+
+                            <button id="add-end-button" class="w-full min-h-10 px-4 inline-flex justify-center items-center text-sm font-bold text-white rounded-lg bg-blue-600 hover:bg-blue-500 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed" type="button">
+                                Add at end
+                            </button>
+
+                            <button id="add-position-button" class="w-full min-h-10 px-4 inline-flex justify-center items-center text-sm font-bold text-white rounded-lg bg-orange-600 hover:bg-orange-500 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed" type="button">
+                                Add at position
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="mt-6 pt-5 border-t border-slate-300">
+                        <h2 class="mb-4 text-sm font-extrabold uppercase">Deletion</h2>
+
+                        <button id="delete-position-button" class="w-full min-h-10 px-4 inline-flex justify-center items-center text-sm font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed" type="button">
+                            Delete at position
+                        </button>
+                    </section>
+                </aside>
+
+                <!-- CODE SECTION -->
+                <section class="min-w-0 min-h-[420px] lg:min-h-0 flex flex-1 flex-col rounded-xl border border-slate-300 bg-white overflow-hidden">
+                    <div class="min-h-16 px-4 flex flex-row justify-between items-center gap-4 border-b border-slate-300">
+                        <div>
+                            <h2 class="text-sm font-extrabold uppercase">C Code</h2>
+
+                            <p class="text-sm text-slate-500">
+                                Generated from the current list.
+                            </p>
+                        </div>
+
+                        <button id="copy-code-button" class="min-h-10 px-4 inline-flex justify-center items-center text-sm font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed" type="button">
+                            Copy
+                        </button>
                     </div>
 
-                    <hr>
-
-                    <!-- Node position input -->
-                    <input id="node-position" type="number" placeholder="Node position (int)">
-
-                    <!-- Add and delete at position buttons -->
-                    <div class="buttons-container">
-                        <button onclick="addAtPosition()">Add node at the postition</button>
-                        <button onclick="deleteAtPosition()">Delete node at the position</button>
+                    <div class="min-h-0 flex-1 overflow-hidden bg-slate-50">
+                        <pre class="!m-0 !min-h-0 h-full !p-4 overflow-auto !rounded-none !bg-slate-50"><code id="code-display" class="language-c text-sm"></code></pre>
                     </div>
+                </section>
+            </div>
 
-                    <hr>
+            <!-- VIEWER SECTION -->
+            <section class="min-w-0 min-h-[180px] lg:h-56 lg:shrink-0 flex flex-col rounded-xl border border-slate-300 bg-white overflow-hidden">
+                <div class="min-h-16 px-4 flex flex-col justify-center items-start border-b border-slate-300">
+                    <h2 class="text-sm font-extrabold uppercase">Doubly linked list</h2>
 
-                    <!-- Reset button -->
-                    <button id="reset-button" onclick="resetList()">Reset the list</button>
+                    <p id="list-info" class="text-sm text-slate-500">
+                        0 node
+                    </p>
                 </div>
-            </div>
 
-            <!-- Code viewer -->
-            <div id="code-viewer-container">
-                <h2>Code viewer</h2>
-
-                <div id="code-viewer">
-                    <pre><code id="code-display" class="language-c"></code></pre>
-                    <button id="copy-code-button" onclick="copyCode()"><i class="bi bi-copy"></i></button>
+                <div id="list-viewer" class="min-w-0 min-h-0 p-4 pt-1 flex flex-1 justify-start items-center rounded-b-xl bg-white bg-[linear-gradient(#dbe3ef_1px,transparent_1px),linear-gradient(90deg,#dbe3ef_1px,transparent_1px)] bg-[size:6px_6px] overflow-x-auto overflow-y-hidden">
+                    <!-- GENERATED LIST -->
                 </div>
-            </div>
-        </div>
-
-        <div id="bottom-container">
-            <h2>Doubly linked list viewer</h2>
-
-            <div id="list-viewer">
-                <!-- The doubly linked list will be generated here -->
-            </div>
+            </section>
         </div>
     </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2024 - Fabien Chavonet.</p>
-    </footer>
 </body>
 
 </html>
